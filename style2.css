@@ -1,0 +1,432 @@
+/* ************ Header Style   *********** */
+
+header{
+  position:fixed;
+  width: var(--ls-full);
+  height: auto;
+  padding: 1.75rem 0;
+  z-index: 999; /*static이 아닌 요소가 겹쳐있을 때 값이 높은 요소가 위로 올라온디.*/
+  transition: all 0.4s;
+  border-bottom: 1px solid transparent;
+}
+
+
+
+header.active{
+  /* border-bottom: 1px solid var( --color-gray-d );  head가 화면을 내릴때 top에서 검정색 선이 보여서 지우고 아래있는 box-shadow를 넣어줘서 잘 안보이게 만듬*/ 
+  border-bottom: 1px solid var(--color-gray-d);
+  background: rgb(254, 254, 254);
+  _box-shadow: 0 1px 4px #ddd;
+}
+
+header .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+}
+
+header .container>* {
+ 
+ display: flex;
+}
+
+header .nav-lists{
+  display: flex;
+
+}
+
+header .nav-lists li{
+  padding: 0 2rem 0 0;;
+}
+
+header .nav-lists li a{
+  font-size: var(--fs-14);
+}
+
+header .nav-lists li a:hover{
+  text-decoration: underline;
+}
+
+header .sns ul{
+  display: flex;
+
+}
+
+header .sns ul li{
+  padding-left: 1rem;
+  
+
+}
+
+header .sns ul a{
+  width: 20px;
+  display: block;
+}
+
+header .sns ul a img{
+  width: var(--ls-full);
+}
+
+header.logo{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+header .logo a{
+  width: 100px;
+}
+
+header .logo a img{
+  width: var(--ls-full);
+}
+
+header .info{
+  align-items: center;
+}
+
+header .cart{
+  margin: 0 0.25rem 0 0.5rem;
+}
+
+header .cart a{
+  display: flex;
+  align-items: center;
+  background: var(--color-black);
+  color: #fff;
+  height: 1.5rem;
+  padding: 0 0.5rem;
+  font-size: var(--fs-14);
+  border-radius: 0.25rem;
+  height:1.8rem;
+  
+}
+
+header .cart em{
+  font-style: normal;
+}
+
+header .user{
+  border: 1px solid var(--color-black);
+  padding:  0 0.5rem;
+  height: 1.8rem;
+  font-size: var(--fs-18);
+  border-radius: 0.25rem;
+  display: flex;
+
+}
+
+header .user a{
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+
+}
+
+header .mobile-menus{
+  display: none;
+
+}
+
+
+
+header .menu-icon{
+  display: none;
+}
+/* ************ Main Landding  Section Stlye *********** */
+
+#main-section {
+  padding: 0;
+  width: var(--ls-full);
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+}
+
+#main-section img {
+  width: var(--ls-full);
+  height: 100vh;
+  object-fit: cover;
+  min-height: 786px; 
+  min-width: 1020px;
+  /* min 을 써서 */
+}
+
+#main-section .overlay{
+  width:  var(--ls-full);
+  height: var(--ls-full);
+  _background: #fefdfd;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.4;
+  
+}
+
+#main-section .landing-text-box{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-45%, -50%);
+  opacity: 0;
+  animation: fade-left 0.5s 1 forwards; /*fade-left 라는 이름의 애니메이션이 0.5초동안 1번 실행*/
+
+}
+
+@keyframes fade-left {
+  from{
+    transform: translate(-45%, -45%);
+    opacity: 0;
+  }
+  to{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+}
+
+#main-section .landing-text-box h2{
+  font-size: var(--fs-title);
+  font-weight: var(--fw-400);
+  line-height: 1.4; /*em 단위가 디풀트*/
+}
+
+#main-section .landing-text-box p{
+  padding: var(--el-medium) 0;
+  width: var(--ls-1-3);
+}
+
+/* ************ Slider  Section style *********** */
+
+.slider-section .container{
+  position: relative;
+}
+/*  buttons를 container 밖쪽으로 꺼내주면 자리를 벗어나게 되는데 이 원래자리에서 버튼이 사진 밖으로 나가게 만들어줌 */
+
+.slider-section .swiper-slide{
+  display: flex; /* 좌우로 */
+  column-gap: var(--el-medium);
+}
+
+.slider-section .swiper-slide > div{ /*의 자식은 2가지가 잡힘 반반씩 가지ㄹ도록 나눔*/
+  width: var(--ls-1-2);
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+}
+.slider-section .swiper-slide > div > img{
+  width: var(--ls-full);
+}
+
+/*글씨 위아래 flex*/
+.slider-section .swiper-slide div.slider-text{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /*위아래 mieter*/
+  row-gap: var(--el-medium); 
+
+}
+
+.slider-section div.slider-text h1{
+  font-size: 1.8rem;
+  font-weight: var(--fe-400);
+
+}
+.slider-section div.slider-text h4{
+  font-size: var(--fs-small-text);
+  width: 90%;
+}
+
+.slider-section .slider-text p{
+  font-size:var(--fs-small-text);
+  width:90%;
+}
+
+
+.slider-section .slider-nav{
+  background: #fff;
+  color: var(--color-black);
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 0 2px var(--color-gray-3);
+  border-radius: 50%;
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+  font-size: 1.5rem;
+}
+
+.slider-section .slider-text h1{font-size:var(--fs-20);}
+
+
+/* .swiper-button-next:after, 
+.swiper-button-prev:after{font-size:1rem;}
+.swiper-button-next{right:2rem;} 
+.swiper-button-prev{left:2rem;} */
+
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+  bottom: -2.5rem;
+}
+.swiper-pagination-bullets{
+  width: 10px;
+  height: 10px;
+}
+.swiper-pagination-bullet-active{
+  background: var(--color-black);
+}
+
+.slider-section .swiper-slide.swiper-slide-active .slider-text{
+  animation: show-up 0.5s 1 forwards; /*show-up이라는 이름의 애니메이션, 0.5s 동안 진행, 1번 실행, 실행후 정지*/
+  
+}
+
+
+  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:-2.5rem;}
+
+  .swiper-pagination-bullet{width:12px; height:12px;}
+  .swiper-pagination-bullet-active{background:var(--color-black);}
+
+
+/* ************ Insta Section Style *********** */
+
+.insta-section .insta-wrapper{
+  display:flex;  
+  grid-template-columns: 1fr 1fr 1fr;}
+/* .insta-section .insta-wrapper > div{} */
+/* .insta-section .insta-wrapper > div{width:var(--ls-1-2);}  */
+.insta-section .insta-image{
+  display:flex; 
+  flex-wrap:wrap; 
+  justify-content: space-between; 
+  column-gap: .25rem;}
+.insta-section .insta-image > div{
+  width:calc(var(--ls-1-2) - .25rem);
+}
+.insta-section .insta-image img{
+  width:var(--ls-full); 
+  border-radius: .25rem; 
+  object-fit:cover;
+}
+
+
+.insta-section .insta-grid-2{
+  display:flex; 
+  flex-direction: column; 
+  row-gap:.5rem;
+}
+.insta-section .insta-left-image .insta-grid-1{
+  align-items: center; 
+  display:flex;
+}
+.insta-section .insta-right-image .insta-grid-1{
+  align-items: flex-end; 
+  display:flex;
+}
+
+.insta-section .insta-info{
+  display:flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  text-align:center; 
+  row-gap:var(--el-normal);
+}
+
+.insta-section .insta-info h4{
+  _font-size:var(--fs-title); 
+  font-weight:var(--fw-400); 
+  font-size:3rem;
+}
+
+.insta-section .insta-id{
+  font-size:var(--fs-small-text); 
+  display:flex; 
+  align-items: center; 
+  column-gap: var(--el-small);
+}
+
+.insta-section .insta-id i{
+  font-size:var(--fs-20);
+}
+
+
+/* ************ Footer  Section Stlye *********** */
+footer{
+  padding: 3rem 0;
+  width: var(--ls-full);
+
+}
+
+footer .footer-upper{
+  display: flex;
+  justify-content: space-between; /* 글자 양옆으로 가게 만듬 (맨 오, 왼) */
+
+} 
+
+footer .footer-logo{
+  width: 100px;
+
+}
+
+footer .footer-logo img{
+  width: var(--ls-full);
+}
+
+footer .footer-info {
+  display: flex;
+}
+
+footer .footer-nav a{
+  font-size: var(--fs-small-text);
+  padding: var(--el-medium);
+}
+/* info 간의 거리 벌려줌 */
+
+footer .footer-sns li{
+  padding: left;
+}
+
+footer .footer-sns li a{ /*a를 먼저 만들고 자식 만들기 */
+  width: 20px;
+  display: block;
+  
+}
+
+footer .footer-sns li img {
+  width: var(--ls-full);
+}
+footer .footer-info > ul {
+  display: flex;
+
+}
+
+footer .footer-line{
+  width: var(--ls-full);
+  height: 1px;
+  background: var(--color-black);
+  margin: var(--el-medium) 0;
+}
+/*  footer 쪽 아래에 선이 생김 */
+
+footer .footer-lower{
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-small-text);
+  text-align: center;
+}
+footer .footer-lower a{
+  text-decoration-line: underline;
+}
+
+
